@@ -1,9 +1,9 @@
 #include <iostream>
-#include "Funk.h"
+#include "funky.h"
 
-int main() {
-    std::cout << "Hello world!\n\n\n";
-
+int main()
+{
+    std::cout << "Hello World!\n\n\n";
     funky1();
     funky2();
 }
