@@ -135,43 +135,46 @@ bool InventoryManager::DeleteItem(ItemType* item)
     Node* curPtr = head;
     Node* lastPtr = nullptr;
 
-    if (head->GetItem().Compare(item) == EQUAL)
+    if (item != nullptr)
     {
-        found = true;
-        string description = "";
-        long long int vin = curPtr->GetItem().GetData(description);
-        cout << "Deleted: " << vin << ", " << description << " at " << curPtr << "\n\n";
-
-        Node* newHead = curPtr->Next();
-
-        delete curPtr;
-        curPtr = nullptr;
-
-        head = newHead;
-    }
-    else
-    {
-        lastPtr = curPtr;
-        curPtr = curPtr->Next();
-    }
-
-    while (curPtr != nullptr)
-    {
-        if (curPtr->GetItem().Compare(item) == EQUAL)
+        if (head->GetItem().Compare(item) == EQUAL)
         {
             found = true;
             string description = "";
             long long int vin = curPtr->GetItem().GetData(description);
             cout << "Deleted: " << vin << ", " << description << " at " << curPtr << "\n\n";
 
-            lastPtr->SetNext(curPtr->Next());
+            Node* newHead = curPtr->Next();
+
             delete curPtr;
             curPtr = nullptr;
 
-            break;
+            head = newHead;
+        }
+        else
+        {
+            lastPtr = curPtr;
+            curPtr = curPtr->Next();
         }
 
-        curPtr = curPtr->Next();
+        while (curPtr != nullptr)
+        {
+            if (curPtr->GetItem().Compare(item) == EQUAL)
+            {
+                found = true;
+                string description = "";
+                long long int vin = curPtr->GetItem().GetData(description);
+                cout << "Deleted: " << vin << ", " << description << " at " << curPtr << "\n\n";
+
+                lastPtr->SetNext(curPtr->Next());
+                delete curPtr;
+                curPtr = nullptr;
+
+                break;
+            }
+
+            curPtr = curPtr->Next();
+        }
     }
 
     return found;

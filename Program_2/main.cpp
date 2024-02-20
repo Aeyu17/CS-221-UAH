@@ -37,6 +37,10 @@ int main() {
 
     carList->MakeEmpty();
 
+    carList->PutItem(nullptr);
+    carList->DeleteItem(nullptr);
+    carList->GetItem(nullptr, found);
+
     carList->PutItem(item3);
     carList->PutItem(item4);
     carList->PutItem(item1);
