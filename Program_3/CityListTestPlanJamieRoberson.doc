@@ -1,0 +1,60 @@
+Test plan for Program 3:
+
+ItemType:
+    1. Compiles
+    2. Default constructor + PrintInfo shows the data as "Nowhere" and 19700101
+    3. Parameterized constructor + PrintInfo shows the data as the specified parameters
+    4. GetData() and GetData(&string) both give properly stored data
+    5. SetData() + PrintInfo changes the internally stored data
+    6. Instantiate different ItemTypes to check boolean operators
+
+CityList:
+    1. Compiles
+    2. Instantiates with default constructor
+    3. Instantiates with parameterized constructor
+    4. PrintList prints the list
+    5. PutItem
+        a. on an empty list
+        b. on a list with information
+        c. on a list with the item already in
+        d. on a full list
+        e. at the end of a list
+        f. with a default item
+        g. check to see if length was incremented
+    6. GetItem
+        a. on an empty list
+        b. on a list with the item in the list
+        c. on a list without the item in the list
+        d. with a default item
+        e. with items on the ends
+        f. with items in the middle
+        g. with an even number of elements in the list
+    7. DeleteItem
+        a. on an empty list
+        b. on a list with the item in the list
+        c. on a list without the item in the list
+        d. with a default item
+        e. check to see if length was decremented
+    8. GetNext
+        a. iterates through the list
+        b. empty list
+        c. try to iterate past the list
+    9. ResetList
+        a. call GetNext to see if it was reset
+    10. GetLength
+        a. returns the actual length
+        b. updates with PutItem and DeleteItem
+    11. IsFull
+        a. on a full list
+        b. on an empty list
+        c. on a list is not full
+    12. MakeEmpty
+        a. empties the list
+        b. check the address of list to see if it is reallocated
+        c. check for memory leaks
+    13. Destructor
+        a. destroys the data
+        b. check for memory leaks
+    14. Copy constructor
+        a. works at all
+        b. edit the copied list to test for deep copy
